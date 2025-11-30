@@ -20,7 +20,7 @@ export const projects = [
     id: 2,
     images: [nu1, nu2, nu3],
     title: "National University Gallery",
-    description: "Built using JavaScript & html, provides a showcase of landmarks found in national university manila",
+    description: "Built using JavaScript & html, provides a showcase of landmarks and services found in national university manila",
     link: "https://nugallery-lyart.vercel.app/",
   },
   {
