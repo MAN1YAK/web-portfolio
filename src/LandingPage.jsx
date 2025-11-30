@@ -4,6 +4,7 @@ import styles from "./LandingPage.module.css";
 import HomePage from "./HomePage.jsx";
 
 function LandingPage() {
+    const [fadeIn, setFadeIn] = useState(false);
     const [startTransition, setStartTransition] = useState(false);
     const [fadeOutLanding, setFadeOutLanding] = useState(false);
     const [showLanding, setShowLanding] = useState(true); // <-- New state
@@ -38,8 +39,13 @@ function LandingPage() {
     }, []);
 
     useEffect(() => {
+        const timer = setTimeout(() => setFadeIn(true), 100); // slight delay for effect
+        return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
         if (fadeOutLanding) {
-            const timer = setTimeout(() => setShowLanding(false), 500); 
+            const timer = setTimeout(() => setShowLanding(false), 500);
             return () => clearTimeout(timer);
         }
     }, [fadeOutLanding]);
@@ -63,20 +69,24 @@ function LandingPage() {
                     onTouchStart={handleContinue}
 
                 >
-                    <div id="title" className={styles.titleContainer}>
-                        <div className={styles.blob} />
-                        <div className={styles.blobOverlay} />
+                    <div className={`${styles.pageWrapper} ${fadeIn ? styles.visible : ''}`}>
 
-                        <h1>
-                            <span className={styles.titleUp}>Angelo Munoz</span>
-                            <span className={styles.titleDown}>Portfolio</span>
-                        </h1>
+                        <div id="title" className={styles.titleContainer}>
+                            <div className={styles.blob} />
+                            <div className={styles.blobOverlay} />
+
+                            <h1>
+                                <span className={styles.titleUp}>Angelo Munoz</span>
+                                <span className={styles.titleDown}>Portfolio</span>
+                            </h1>
+                        </div>
+                        <div id="button">
+                            <button className={styles.button}>
+                                Click Anywhere to Continue
+                            </button>
+                        </div>
                     </div>
-                    <div id="button">
-                        <button className={styles.button}>
-                            Click Anywhere to Continue
-                        </button>
-                    </div>
+
                 </div>
             )}
         </>
