@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './HomePage.module.css';
+import styles from './Homepage.module.css';
 import AboutMeCard from './component/AboutMeCard';
 import ProjectScroll from './component/ProjectsScroll';
 
