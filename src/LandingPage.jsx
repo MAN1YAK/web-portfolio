@@ -37,10 +37,9 @@ function LandingPage() {
         };
     }, []);
 
-    // Hide landing page completely after fade out
     useEffect(() => {
         if (fadeOutLanding) {
-            const timer = setTimeout(() => setShowLanding(false), 500); // match CSS fade duration
+            const timer = setTimeout(() => setShowLanding(false), 500); 
             return () => clearTimeout(timer);
         }
     }, [fadeOutLanding]);

@@ -10,11 +10,12 @@ function AboutMeCard() {
 
     const [copied, setCopied] = useState(false);
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText("angelomunoz440@gmail.com");
+    const handleCopy = (value) => {
+        navigator.clipboard.writeText(value);
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
     };
+
 
     return (
         <>
@@ -45,18 +46,24 @@ function AboutMeCard() {
                         <img src={swiggle} className={styles.swiggle} />
                         <p>{aboutDescription}</p>
                         <div className={styles.contact}>
-                            <div className={styles.contact}>
-                                <MdEmail className={styles.emailIcon} onClick={handleCopy} />
-                                {copied && (
-                                    <div className={styles.toast}>
-                                        Copied to clipboard!
-                                    </div>
-                                )}
-                            </div>
-                            <div className={styles.number} onClick={() => window.location.href = "tel:+639501826105"}>
-                                <MdPhone className={styles.phoneIcon} />
+                            <MdEmail
+                                className={styles.emailIcon}
+                                onClick={() => handleCopy("angelomunoz440@gmail.com")}
+                            />
+
+                            <div className={styles.number}>
+                                <MdPhone
+                                    className={styles.phoneIcon}
+                                    onClick={() => handleCopy("+63 950 182 6105")}
+                                />
                                 <p>+63 950 182 6105</p>
                             </div>
+
+                            {copied && (
+                                <div className={styles.toast}>
+                                    Copied to clipboard!
+                                </div>
+                            )}
                         </div>
                         <img src={signature} className={styles.signature} />
                     </div>

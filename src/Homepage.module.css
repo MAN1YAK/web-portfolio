@@ -2,20 +2,45 @@
     width: 100%;
     min-height: 100vh; /* allows scrolling when content is tall */
     height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    align-items: center;
-    justify-content: center;
+
 }
 
-.fadeWrapper {
+.pageWrapper {
     opacity: 0;
-    transform: translateY(20px); /* subtle upward motion */
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fadeWrapper.visible {
+/* When fadeIn triggers */
+.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Children get slight delay for stagger effect */
+.pageWrapper > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.visible > *:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.visible > *:nth-child(2) {
+    transition-delay: 0.30s;
+}
+
+.itemRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
 }

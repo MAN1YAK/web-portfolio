@@ -13,14 +13,12 @@ function HomePage() {
 
     return (
         <div className={styles.container}>
-            <div className={`${styles.fadeWrapper} ${fadeIn ? styles.visible : ''}`}>
-                <AboutMeCard />
+            <div className={`${styles.pageWrapper} ${fadeIn ? styles.visible : ''}`}>
+                <div className={styles.itemRow}>
+                    <AboutMeCard />
+                    <ProjectScroll />
+                </div>
             </div>
-
-            <div className={`${styles.fadeWrapper} ${fadeIn ? styles.visible : ''}`}>
-                <ProjectScroll />
-            </div>
-
         </div>
     )
 }
