@@ -1,0 +1,425 @@
+@font-face {
+    font-family: 'aug';
+    src: url('../assets/fonts/CapitalisTypOasis.ttf');
+}
+
+@font-face {
+    font-family: 'pro';
+    src: url('../assets/fonts/professional.ttf');
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    font-family: 'aug';
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/cardTexture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+        height: auto;
+        /* let content decide height */
+    }
+}
+
+.top {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.cardTitle {
+    display: inline-block;
+    position: relative;
+    color: black;
+    background-color: white;
+    padding: 0 5px;
+    z-index: 1;
+}
+
+.cardTitle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/cardTexture.jpg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.line1 {
+    top: 45%;
+    height: 7px;
+}
+
+.line2 {
+    top: 60%;
+    height: 10px;
+}
+
+.line3 {
+    top: 80%;
+    height: 13px;
+}
+
+.cardTitle h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .cardTitle h1 {
+        font-size: 1rem;
+    }
+}
+
+.cardtitleBottom {
+    margin-bottom: 0;
+}
+
+.cardtitleBottom h1 {
+    font-size: 2rem;
+    color: black;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .cardtitleBottom h1 {
+        font-size: 0.75rem;
+    }
+}
+
+.cardtitleBottom {
+    display: flex;
+    justify-content: flex-end;
+    /* pushes content to the right */
+}
+
+.cardtitleBottom h2 {
+    font-size: 1.5rem;
+    color: black;
+    margin: 0;
+    font-family: 'aug';
+}
+
+
+.right img {
+    margin-top: 0px;
+}
+
+.horizontalLine {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #c99542;
+    z-index: 0;
+}
+
+.body {
+    margin-top: o;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left,
+.right {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.pictureBorder {
+    left: 5%;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: 3px solid #F5F5DC;
+    box-sizing: border-box;
+
+}
+
+.picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30% 70%;
+    border-radius: 2%;
+    display: block;
+}
+
+@media (max-width: 1000px) {
+    .pictureBorder {
+        width: 100%;
+        max-width: 350px;
+
+    }
+
+    .picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 30% 70%;
+        display: block;
+    }
+
+}
+
+.right {
+    position: relative;
+    max-width: 100%;
+    padding: 40px;
+    color: black;
+    transform: translateX(-25px);
+}
+
+
+.right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url("../assets/clamShell.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.right * {
+    position: relative;
+    z-index: 1;
+}
+
+.right p {
+    transform: translateY(-20px);
+    margin-bottom: 10px;
+}
+
+
+
+.swiggle {
+    transform: translateY(-50px);
+    width: 100%;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.emailIcon {
+    font-size: 35px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.emailIcon:hover {
+    transform: scale(1.1);
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeToast 1.6s ease forwards;
+    z-index: 9999;
+}
+
+.number {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.phoneIcon {
+    font-size: 24px;
+    color: #333;
+    transition: transform 0.2s ease;
+}
+
+.phoneIcon:hover {
+    transform: scale(1.1);
+}
+
+.number p {
+    transform: translateY(1px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+
+.signature {
+    transform: translateX(30px);
+    max-width: 300px;
+    width: 50%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+
+    /* Container becomes narrower */
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    /* Main title */
+    .cardTitle h1 {
+        font-size: 1.2rem;
+    }
+
+    /* Bottom title */
+    .cardtitleBottom h1 {
+        font-size: 1rem;
+    }
+
+    .cardtitleBottom h2 {
+        font-size: 0.9rem;
+    }
+
+    /* Body layout stacks more comfortably */
+    .body {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    /* Picture border + picture */
+    .pictureBorder {
+        left: 0%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+    }
+
+    .picture {
+        width: 100%;
+        height: 100%;
+        object-position: 30% 70%;
+    }
+
+    /* Right section text */
+    .right {
+        padding: 20px;
+        transform: translateX(0);
+        text-align: center;
+    }
+
+    .right::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 200px;
+        background-image: url("../assets/clamShell.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    .right p {
+        font-size: 0.7rem;
+        transform: translateY(0);
+    }
+
+    /* Decorative swiggle */
+    .swiggle {
+        width: 70%;
+        transform: translateY(-20px);
+    }
+
+    /* Signature */
+    .signature {
+        width: 40%;
+        max-width: 180px;
+        transform: translateX(0);
+    }
+
+    @media (max-width: 800px) {
+        .line1 {
+            top: 20%;
+            height: 5px;
+        }
+
+        .line2 {
+            top: 40%;
+            height: 7px;
+        }
+
+        .line3 {
+            top: 65%;
+            height: 8px;
+        }
+    }
+}

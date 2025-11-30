@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    min-height: 100vh; /* allows scrolling when content is tall */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fadeWrapper {
+    opacity: 0;
+    transform: translateY(20px); /* subtle upward motion */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fadeWrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

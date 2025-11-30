@@ -1,0 +1,202 @@
+@font-face {
+  font-family: 'krabs';
+  src: url('../assets/fonts/Krabby\ Patty.ttf');
+}
+
+@font-face {
+  font-family: 'lemon-milk';
+  src: url('../assets/fonts/LEMONMILK-Regular.otf');
+}
+
+
+.container {
+  width: 100%;
+  min-width: 50vw;
+  background-color: #F2EBD9;
+  color: black;
+  margin: auto;
+  padding: 20px 0;
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+  font-family: 'krabs';
+  border: solid black 2px;
+  padding-bottom: 100px;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -104px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 4px);
+  /* +2px on each side */
+  height: 124px;
+  background-color: black;
+  -webkit-mask-image: url('../assets/tornTop.png');
+  mask-image: url('../assets/tornTop.png');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  z-index: -2;
+}
+
+/* 2. Actual torn mask */
+.container::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #F2EBD9;
+  /* same as container */
+
+  -webkit-mask-image: url('../assets/tornTop.png');
+  mask-image: url('../assets/tornTop.png');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  z-index: -1;
+}
+
+.containerTitle {
+  position: relative;
+  margin-top: -50px;
+  z-index: 1;
+}
+
+.containerTitle h1 {
+  font-size: 52px;
+}
+
+
+.projectList {
+  padding: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.projectRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.left {
+  margin-right: 20px;
+  padding-left: 50px;
+  flex-direction: row;
+}
+
+.right {
+  margin-left: 20px;
+  padding-right: 50px;
+  flex-direction: row-reverse;
+}
+
+.textBox p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+
+
+
+
+.projectImageLink {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: ridge black 2px;
+  border-radius: 10px;
+
+}
+
+.projectImageLink:hover {
+  transform: scale(1.05);
+  /* slightly zooms on hover */
+}
+
+
+.projectImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 0.8s ease;
+}
+
+.projectImage.visible {
+  opacity: 1;
+}
+
+.textBox {
+  font-family: 'lemon-milk';
+  width: 100%;
+}
+
+.textBox h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+
+
+@media (max-width: 800px) {
+  .container {
+    padding: 15px 0;
+  }
+
+  .containerTitle h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .projectList {
+    gap: 40px;
+  }
+
+  .projectRow,
+  .left,
+  .right {
+    flex-direction: column !important;
+    /* stack everything vertically */
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+    /* center images and text */
+    gap: 20px;
+  }
+
+  .projectImageLink {
+    width: 90%;
+    /* smaller width for mobile */
+    max-width: 100%;
+    height: 200px;
+    aspect-ratio: auto;
+    /* allow natural height */
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  .textBox {
+    width: 90%;
+    text-align: center;
+  }
+
+  .textBox h2 {
+    font-size: 20px;
+  }
+
+  .textBox p {
+    font-size: 14px;
+  }
+}
