@@ -79,3 +79,40 @@
 .button:focus {
     outline: none;
 }
+
+@media (max-width: 800px) {
+
+    /* Scale down blob */
+    .blob {
+        width: 300px;
+        aspect-ratio: 1;
+    }
+
+    .blobOverlay {
+        width: 320px;
+        aspect-ratio: 1;
+    }
+
+    /* Titles */
+    .titleUp {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .titleDown {
+        font-size: 2rem;
+        padding: 5px 10px;
+    }
+
+    /* Buttons */
+    .button {
+        transform: translateY(-20px);
+        padding: 8px 40px;
+        font-size: 0.9rem;
+    }
+
+    /* Landing wrapper opacity still works */
+    .landingWrapper {
+        transition: opacity 0.8s ease-in-out;
+    }
+}
